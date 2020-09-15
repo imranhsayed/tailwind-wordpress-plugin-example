@@ -1,0 +1,5 @@
+body {
+  @include font-family();
+  @include font-smoothing();
+  color: $color__body-text;
+}

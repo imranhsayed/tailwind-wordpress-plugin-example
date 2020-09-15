@@ -1,0 +1,15 @@
+/*----------------
+		Font
+------------------*/
+
+// Global theme font.
+$font__main: 'Helvetica', sans-serif;
+
+// Global code font
+$font__code: 'Helvetica', sans-serif, monospace;
+
+// Fallback font when font is not loaded via WebFonts JS.
+$font__fallback: sans-serif;
+
+// Base line height.
+$font__base-line-height: 30px;

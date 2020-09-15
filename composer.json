@@ -1,0 +1,19 @@
+{
+  "name": "imranhsayed/tailwind-wordpress-plugin-example",
+  "description": "A WordPress plugin example for using tailwind css in Gutenberg editor",
+  "type": "wordpress-plugin",
+  "license": "GPL-3.0+",
+  "version": "1.0.0",
+  "keywords": [
+	"wordpress",
+	"plugin",
+	"tailwind"
+  ],
+  "homepage": "https://github.com/imranhsayed/tailwind-wordpress-plugin-example",
+  "authors": [
+	{
+	  "name": "Imran Sayed",
+	  "email": "codeytek.academy@gmail.com"
+	}
+  ]
+}
