@@ -18,6 +18,4 @@ define( 'TWP_JS_PATH', trailingslashit( plugin_dir_path( __FILE__ ) ). 'assets/b
 define( 'TWP_CSS_URI', trailingslashit( plugins_url( 'tailwind-wordpress-plugin-example' ) ) . 'assets/build/css/' );
 define( 'TWP_CSS_PATH', trailingslashit( plugin_dir_path( __FILE__ ) ). 'assets/build/css/' );
 
-// phpcs:disable WordPressVIPMinimum.Files.IncludingFile.UsingCustomConstant
 require_once 'inc/class-enqueue-assets.php';
-// phpcs:enable WordPressVIPMinimum.Files.IncludingFile.UsingCustomConstant
