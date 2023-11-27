@@ -1,12 +1,11 @@
 /**
  * Webpack configuration.
  */
-const path                    = require('path')
+const path  = require('path')
 const MiniCssExtractPlugin    = require('mini-css-extract-plugin')
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-const cssnano                 = require('cssnano')
+const CssMinimizerPlugin      = require("css-minimizer-webpack-plugin");
 const { CleanWebpackPlugin }  = require('clean-webpack-plugin')
-const UglifyJsPlugin          = require('uglifyjs-webpack-plugin')
+const TerserPlugin            = require("terser-webpack-plugin");
 
 // JS Directory path.
 const JS_DIR    = path.resolve(__dirname, 'src/js')
@@ -22,10 +21,14 @@ const output = {
   filename: 'js/[name].js'
 }
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 const plugins = (argv) => [
   new CleanWebpackPlugin({
     cleanStaleWebpackAssets: ('production' === argv.mode)
   }),
+
+  new MiniCssExtractPlugin(),
 
   new MiniCssExtractPlugin({
     filename: 'css/[name].css'
@@ -40,7 +43,7 @@ const rules = [
     use: 'babel-loader'
   },
   {
-    test: /\.scss$/,
+    test: /\.(sc|sa|c)ss$/,
     exclude: /node_modules/,
     use: [
       MiniCssExtractPlugin.loader,
@@ -100,17 +103,12 @@ module.exports = (env, argv) => ({
   },
 
   optimization: {
+    minimize: true,
     minimizer: [
-      new OptimizeCssAssetsPlugin({
-        cssProcessor: cssnano
-      }),
-
-      new UglifyJsPlugin({
-        cache: false,
-        parallel: true,
-        sourceMap: false
-      })
-    ]
+      '...',
+      new TerserPlugin(),
+      new CssMinimizerPlugin(),
+    ],
   },
 
   plugins: plugins(argv),
