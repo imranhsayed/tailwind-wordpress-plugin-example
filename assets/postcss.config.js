@@ -1,7 +1,10 @@
+/** @type {import('postcss').Config} */
 module.exports = {
-  plugins: [
-    require('tailwindcss'),
-    require('precss'),
-    require('autoprefixer')
-  ]
-}
+  content: [
+    './src/**/*.{js,jsx,ts,tsx}'
+  ],
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+};
